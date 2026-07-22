@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0B1220"/>
+  <circle cx="980" cy="120" r="220" fill="#2563EB" opacity="0.25"/>
+  <circle cx="180" cy="520" r="180" fill="#0EA5E9" opacity="0.18"/>
+  <text x="80" y="280" font-family="Inter,Arial,sans-serif" font-size="64" font-weight="800" fill="white">Dang Ngoc Hai</text>
+  <text x="80" y="360" font-family="Inter,Arial,sans-serif" font-size="36" font-weight="500" fill="#93C5FD">Mobile Developer</text>
+  <text x="80" y="430" font-family="Inter,Arial,sans-serif" font-size="24" fill="#94A3B8">Flutter · React Native · Dart</text>
+</svg>

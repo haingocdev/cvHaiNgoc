@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="480" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF6FF"/>
+      <stop offset="1" stop-color="#DBEAFE"/>
+    </linearGradient>
+    <linearGradient id="face" x1="140" y1="100" x2="340" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" fill="url(#bg)"/>
+  <circle cx="240" cy="190" r="78" fill="url(#face)"/>
+  <path d="M110 420c20-78 78-120 130-120s110 42 130 120" fill="url(#face)"/>
+  <text x="240" y="455" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="18" fill="#334155">Dang Ngoc Hai</text>
+</svg>
