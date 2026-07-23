@@ -5,15 +5,11 @@ import { Badge, Button, Card, Container } from '@/components/ui';
 import { SEO } from '@/components/SEO';
 import { SocialLinks } from '@/components/SocialLinks';
 import { personalInfo } from '@/data/personal';
-import { skillCategories } from '@/data/skills';
+import { summarySkills } from '@/data/skills';
 import { experiences } from '@/data/experience';
 import { projects } from '@/data/projects';
 import { education } from '@/data/education';
 import { ROUTES } from '@/constants';
-
-const highlightSkills = skillCategories.flatMap((category) =>
-  category.skills.slice(0, category.id === 'practices' || category.id === 'tools' ? 3 : 4),
-);
 
 const topProjects = projects.slice(0, 3);
 
@@ -142,7 +138,7 @@ export function SummaryPage() {
                     Skills
                   </h2>
                   <div className="mt-4 flex flex-wrap gap-2">
-                    {highlightSkills.map((skill) => (
+                    {summarySkills.map((skill) => (
                       <Badge key={skill}>{skill}</Badge>
                     ))}
                   </div>

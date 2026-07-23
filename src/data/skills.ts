@@ -51,3 +51,17 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
 ];
+
+/** Skills shown on the Quick Summary page — edit this list freely. */
+export const summarySkills = [
+  'Flutter',
+  'React Native',
+  'Dart',
+  'JavaScript',
+  'React',
+  'Bloc / Cubit',
+  'Next.js',
+  'Redux',
+  'Firebase',
+  'MySQL',
+];
