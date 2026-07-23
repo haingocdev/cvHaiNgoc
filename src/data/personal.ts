@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
   email: 'haingocdev@gmail.com',
   phone: '+84 348 263 626',
   location: 'Hanoi, Vietnam',
-  cvUrl: '/DangNgocHai-FE-Developer.pdf',
+  cvUrl: `${import.meta.env.BASE_URL}DangNgocHai-FE-Developer.pdf`,
   socials: [
     {
       id: 'email',
