@@ -4,12 +4,12 @@ export const skillCategories: SkillCategory[] = [
   {
     id: 'languages',
     title: 'Programming Languages',
-    skills: ['Dart', 'JavaScript', 'Kotlin', 'Java', 'Swift'],
+    skills: ['Dart', 'JavaScript', 'Kotlin', 'Java'],
   },
   {
     id: 'mobile',
     title: 'Mobile Development',
-    skills: ['Flutter', 'React Native', 'Android (Kotlin/Java)', 'iOS (Swift)'],
+    skills: ['Flutter', 'React Native', 'Android (Kotlin/Java)'],
   },
   {
     id: 'web',

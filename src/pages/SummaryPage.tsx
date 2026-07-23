@@ -194,7 +194,7 @@ export function SummaryPage() {
                         className="rounded-xl border border-[var(--card-border)] bg-[var(--bg-muted)]/40 p-3.5"
                       >
                         <p className="text-sm font-semibold">{project.title}</p>
-                        <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[var(--fg-muted)]">
+                        <p className="mt-1 line-clamp-3 text-xs leading-relaxed text-[var(--fg-muted)]">
                           {project.description}
                         </p>
                         <div className="mt-2 flex flex-wrap gap-1.5">
