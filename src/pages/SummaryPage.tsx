@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Mail, MapPin, Phone } from 'lucide-react';
 import { Badge, Button, Card, Container } from '@/components/ui';
@@ -15,6 +16,36 @@ const highlightSkills = skillCategories.flatMap((category) =>
 );
 
 const topProjects = projects.slice(0, 3);
+
+function ExpandableText({ text, maxLength = 110 }: { text: string; maxLength?: number }) {
+  const [expanded, setExpanded] = useState(false);
+  const needsTruncate = text.length > maxLength;
+  const preview =
+    needsTruncate && !expanded
+      ? text.slice(0, maxLength).replace(/\s+\S*$/, '').trimEnd()
+      : text;
+
+  return (
+    <div className="mt-1.5">
+      <p className="text-sm leading-relaxed text-[var(--fg-muted)]">
+        {preview}
+        {needsTruncate ? (
+          <>
+            {' '}
+            <button
+              type="button"
+              onClick={() => setExpanded((value) => !value)}
+              className="font-semibold text-primary transition-colors hover:text-secondary"
+              aria-expanded={expanded}
+            >
+              {expanded ? 'Show less' : '...'}
+            </button>
+          </>
+        ) : null}
+      </p>
+    </div>
+  );
+}
 
 export function SummaryPage() {
   return (
@@ -150,9 +181,7 @@ export function SummaryPage() {
                           </p>
                           <span className="text-xs text-[var(--fg-muted)]">{item.duration}</span>
                         </div>
-                        <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-[var(--fg-muted)]">
-                          {item.description}
-                        </p>
+                        <ExpandableText text={item.description} />
                       </li>
                     ))}
                   </ul>
