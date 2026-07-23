@@ -65,13 +65,13 @@ Open the local URL printed by Vite (default `http://localhost:5173`).
 
 ## Scripts
 
-| Script | Description |
-| --- | --- |
-| `npm run dev` | Start development server |
-| `npm run build` | Type-check and production build |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format with Prettier |
+| Script            | Description                     |
+| ----------------- | ------------------------------- |
+| `npm run dev`     | Start development server        |
+| `npm run build`   | Type-check and production build |
+| `npm run preview` | Preview production build        |
+| `npm run lint`    | Run ESLint                      |
+| `npm run format`  | Format with Prettier            |
 
 ## Customization
 
@@ -83,11 +83,11 @@ Open the local URL printed by Vite (default `http://localhost:5173`).
 
 ## Color Palette
 
-| Token | Value |
-| --- | --- |
-| Primary | `#2563EB` |
-| Secondary | `#6366F1` |
-| Accent | `#0EA5E9` |
+| Token      | Value             |
+| ---------- | ----------------- |
+| Primary    | `#2563EB`         |
+| Secondary  | `#6366F1`         |
+| Accent     | `#0EA5E9`         |
 | Background | White / Dark Gray |
 
 ## Typography

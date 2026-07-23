@@ -32,11 +32,7 @@ export function Projects() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div
-            className="mt-8 flex flex-wrap gap-2"
-            role="tablist"
-            aria-label="Project filters"
-          >
+          <div className="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Project filters">
             {projectFilterOptions.map((option) => {
               const isActive = filter === option.id;
               return (

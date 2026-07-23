@@ -26,7 +26,9 @@ export function SocialLinks({ links, className, iconClassName }: SocialLinksProp
             <a
               href={link.href}
               target={link.icon === 'email' || link.icon === 'phone' ? undefined : '_blank'}
-              rel={link.icon === 'email' || link.icon === 'phone' ? undefined : 'noreferrer noopener'}
+              rel={
+                link.icon === 'email' || link.icon === 'phone' ? undefined : 'noreferrer noopener'
+              }
               aria-label={link.label}
               className={cn(
                 'inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--card-border)]',

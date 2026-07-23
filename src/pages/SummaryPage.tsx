@@ -18,7 +18,10 @@ function ExpandableText({ text, maxLength = 110 }: { text: string; maxLength?: n
   const needsTruncate = text.length > maxLength;
   const preview =
     needsTruncate && !expanded
-      ? text.slice(0, maxLength).replace(/\s+\S*$/, '').trimEnd()
+      ? text
+          .slice(0, maxLength)
+          .replace(/\s+\S*$/, '')
+          .trimEnd()
       : text;
 
   return (
@@ -169,7 +172,10 @@ export function SummaryPage() {
                   </h2>
                   <ul className="mt-4 space-y-5">
                     {experiences.map((item) => (
-                      <li key={item.id} className="relative pl-4 before:absolute before:top-1.5 before:left-0 before:h-2 before:w-2 before:rounded-full before:bg-primary">
+                      <li
+                        key={item.id}
+                        className="relative pl-4 before:absolute before:top-1.5 before:left-0 before:h-2 before:w-2 before:rounded-full before:bg-primary"
+                      >
                         <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                           <p className="text-sm font-semibold">
                             {item.position}

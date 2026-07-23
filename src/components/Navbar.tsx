@@ -62,7 +62,9 @@ export function Navbar() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled || open ? 'glass border-b border-[var(--card-border)] shadow-soft' : 'bg-transparent',
+        scrolled || open
+          ? 'glass border-b border-[var(--card-border)] shadow-soft'
+          : 'bg-transparent',
       )}
     >
       <Container className="flex h-16 items-center justify-between lg:h-[4.5rem]">
@@ -81,32 +83,36 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          <Link to={ROUTES.SUMMARY} className={linkClass(isSummary)} aria-current={isSummary ? 'page' : undefined}>
+          <Link
+            to={ROUTES.SUMMARY}
+            className={linkClass(isSummary)}
+            aria-current={isSummary ? 'page' : undefined}
+          >
             Summary
           </Link>
-          {isHome
-            ? navItems.map((item) => {
-                const isActive = activeSection === item.id;
-                return (
-                  <a
-                    key={item.id}
-                    href={item.href}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      handleSectionNavigate(item.href);
-                    }}
-                    className={linkClass(isActive)}
-                    aria-current={isActive ? 'true' : undefined}
-                  >
-                    {item.label}
-                  </a>
-                );
-              })
-            : (
-              <Link to={ROUTES.HOME} className={linkClass(isHome)}>
-                Full portfolio
-              </Link>
-            )}
+          {isHome ? (
+            navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleSectionNavigate(item.href);
+                  }}
+                  className={linkClass(isActive)}
+                  aria-current={isActive ? 'true' : undefined}
+                >
+                  {item.label}
+                </a>
+              );
+            })
+          ) : (
+            <Link to={ROUTES.HOME} className={linkClass(isHome)}>
+              Full portfolio
+            </Link>
+          )}
         </nav>
 
         <div className="flex items-center gap-1">

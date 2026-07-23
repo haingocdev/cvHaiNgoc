@@ -42,7 +42,7 @@ export function Contact() {
           <Reveal>
             <Card className="h-full">
               <h3 className="text-lg font-semibold">Contact details</h3>
-                  <ul className="mt-6 space-y-4 text-sm">
+              <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <p className="font-medium text-[var(--fg-subtle)]">Email</p>
                   <a

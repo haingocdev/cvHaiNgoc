@@ -18,12 +18,7 @@ const offsetMap = {
   none: { x: 0, y: 0 },
 };
 
-export function Reveal({
-  children,
-  className,
-  delay = 0,
-  direction = 'up',
-}: RevealProps) {
+export function Reveal({ children, className, delay = 0, direction = 'up' }: RevealProps) {
   const reducedMotion = useReducedMotion();
   const offset = offsetMap[direction];
 
