@@ -5,12 +5,12 @@ export const personalInfo: PersonalInfo = {
   name: 'Dang Ngoc Hai',
   role: 'Mobile Developer',
   introduction:
-    'Mobile Developer with 4 years of experience building scalable apps with Flutter and React Native — strong architecture, solid performance, and production-ready release workflows.',
+    'Mobile Developer with 4 years of experience building scalable mobile and web applications using Flutter, React Native, React, and Next.js. Skilled in modular architecture, efficient state management, and delivering production-ready applications for the App Store and Google Play.',
   yearsOfExperience: 4,
   about:
-    'I am a Mobile Developer with 4 years of experience designing, developing, and deploying scalable mobile applications using Flutter and React Native. I focus on production-ready quality, modular architecture, and optimized release workflows for App Store and Google Play. I am experienced with CI/CD collaboration, state management, unit testing, and Agile/Scrum delivery.',
+    'Front-end / Mobile Developer with 4 years designing, building, and deploying scalable web & mobile apps using Flutter, React Native, React, and Next.js. Hands-on with Bloc/Cubit, Provider, Riverpod, and Redux; CI/CD and store releases; Firebase, MySQL, MongoDB & GraphQL; plus unit testing and Agile/Scrum delivery.',
   careerObjective:
-    'To keep shipping high-quality mobile products, strengthen Flutter and React Native expertise, and contribute to teams that value clean architecture, performance, and maintainable code.',
+    'To keep shipping high-quality mobile and web products, deepen Flutter and React Native expertise, and contribute to teams that value clean architecture, performance, and maintainable code.',
   email: 'haingocdev@gmail.com',
   phone: '+84 348 263 626',
   location: 'Hanoi, Vietnam',

@@ -37,15 +37,10 @@ export interface PersonalInfo {
   socials: SocialLink[];
 }
 
-export interface SkillItem {
-  name: string;
-  level: number;
-}
-
 export interface SkillCategory {
   id: string;
   title: string;
-  skills: SkillItem[];
+  skills: string[];
 }
 
 export interface ExperienceItem {
@@ -63,7 +58,6 @@ export interface ProjectItem {
   id: string;
   title: string;
   description: string;
-  image: string;
   technologies: string[];
   category: Exclude<ProjectCategory, 'all'>;
   githubUrl?: string;
@@ -74,7 +68,6 @@ export interface CertificateItem {
   id: string;
   name: string;
   year: string;
-  image: string;
   issuer: string;
 }
 

@@ -2,59 +2,52 @@ import type { SkillCategory } from '@/types';
 
 export const skillCategories: SkillCategory[] = [
   {
-    id: 'mobile',
-    title: 'Mobile Development',
-    skills: [
-      { name: 'Flutter', level: 92 },
-      { name: 'React Native', level: 90 },
-      { name: 'Android (Kotlin/Java)', level: 80 },
-      { name: 'iOS (Swift)', level: 75 },
-    ],
-  },
-  {
     id: 'languages',
     title: 'Programming Languages',
-    skills: [
-      { name: 'Dart', level: 92 },
-      { name: 'JavaScript', level: 90 },
-      { name: 'Kotlin', level: 78 },
-      { name: 'Java', level: 75 },
-      { name: 'Swift', level: 72 },
-    ],
+    skills: ['Dart', 'JavaScript', 'Kotlin', 'Java', 'Swift'],
+  },
+  {
+    id: 'mobile',
+    title: 'Mobile Development',
+    skills: ['Flutter', 'React Native', 'Android (Kotlin/Java)', 'iOS (Swift)'],
+  },
+  {
+    id: 'web',
+    title: 'Web Development',
+    skills: ['React', 'Next.js', 'React Hooks', 'HTML/CSS'],
   },
   {
     id: 'state-management',
     title: 'State Management',
-    skills: [
-      { name: 'Bloc / Cubit', level: 90 },
-      { name: 'Provider', level: 88 },
-      { name: 'Riverpod', level: 85 },
-      { name: 'Redux (Thunk, Saga)', level: 86 },
-      { name: 'React Query', level: 84 },
-    ],
+    skills: ['Bloc / Cubit', 'Provider', 'Riverpod', 'Redux (Thunk, Saga)', 'React Query'],
   },
   {
     id: 'backend',
-    title: 'Backend & Databases',
-    skills: [
-      { name: 'Node.js / Express', level: 82 },
-      { name: 'Strapi', level: 75 },
-      { name: 'Firebase', level: 88 },
-      { name: 'MongoDB', level: 80 },
-      { name: 'MySQL', level: 82 },
-      { name: 'GraphQL', level: 78 },
-    ],
+    title: 'Backend & APIs',
+    skills: ['Node.js', 'Express', 'Strapi', 'RESTful APIs', 'GraphQL'],
+  },
+  {
+    id: 'databases',
+    title: 'Databases',
+    skills: ['Firebase (Realtime, Firestore)', 'MongoDB', 'MySQL'],
   },
   {
     id: 'tools',
-    title: 'Tools & Practices',
+    title: 'Tools & IDEs',
+    skills: ['VS Code', 'Android Studio', 'Xcode'],
+  },
+  {
+    id: 'practices',
+    title: 'Testing, CI/CD & Practices',
     skills: [
-      { name: 'VS Code', level: 92 },
-      { name: 'Android Studio', level: 88 },
-      { name: 'Xcode', level: 85 },
-      { name: 'CI/CD & Fastlane', level: 82 },
-      { name: 'Unit / Widget Testing', level: 80 },
-      { name: 'Agile / Scrum', level: 88 },
+      'Unit Testing',
+      'Widget Testing',
+      'CI/CD pipelines',
+      'Fastlane',
+      'App Store',
+      'Google Play',
+      'Agile / Scrum',
+      'AI-assisted engineering',
     ],
   },
 ];

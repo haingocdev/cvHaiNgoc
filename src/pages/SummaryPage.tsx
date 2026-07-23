@@ -11,7 +11,7 @@ import { education } from '@/data/education';
 import { ROUTES } from '@/constants';
 
 const highlightSkills = skillCategories.flatMap((category) =>
-  category.skills.slice(0, category.id === 'tools' ? 3 : 4).map((skill) => skill.name),
+  category.skills.slice(0, category.id === 'practices' || category.id === 'tools' ? 3 : 4),
 );
 
 const topProjects = projects.slice(0, 3);

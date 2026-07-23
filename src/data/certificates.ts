@@ -6,6 +6,5 @@ export const certificates: CertificateItem[] = [
     name: 'English Proficiency',
     year: '2023',
     issuer: 'Equivalent to IELTS 6.5',
-    image: '/images/certificates/ts-pro.svg',
   },
 ];
