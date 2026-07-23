@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Mail, MapPin, Phone } from 'lucide-react';
-import { Badge, Button, Card, Container, LazyImage } from '@/components/ui';
+import { Badge, Button, Card, Container } from '@/components/ui';
 import { SEO } from '@/components/SEO';
 import { SocialLinks } from '@/components/SocialLinks';
 import { personalInfo } from '@/data/personal';
@@ -42,44 +42,35 @@ export function SummaryPage() {
           <Card className="overflow-hidden p-0">
             {/* Header */}
             <div className="border-b border-[var(--card-border)] bg-[var(--bg-muted)]/50 p-6 sm:p-8">
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-                <LazyImage
-                  src={personalInfo.avatar}
-                  alt={`${personalInfo.name} avatar`}
-                  className="h-24 w-24 shrink-0 rounded-2xl sm:h-28 sm:w-28"
-                  width={112}
-                  height={112}
-                />
-                <div className="min-w-0 flex-1">
-                  <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-                    {personalInfo.name}
-                  </h1>
-                  <p className="mt-1 text-base font-medium text-secondary sm:text-lg">
-                    {personalInfo.role} · {personalInfo.yearsOfExperience}+ years
-                  </p>
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--fg-muted)]">
-                    {personalInfo.introduction}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <Button
-                      size="sm"
-                      onClick={() => window.open(personalInfo.cvUrl, '_blank')}
-                      aria-label="Download CV"
-                    >
-                      <Download className="h-4 w-4" />
-                      Download CV
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => {
-                        window.location.href = `mailto:${personalInfo.email}`;
-                      }}
-                    >
-                      <Mail className="h-4 w-4" />
-                      Contact
-                    </Button>
-                  </div>
+              <div>
+                <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+                  {personalInfo.name}
+                </h1>
+                <p className="mt-1 text-base font-medium text-secondary sm:text-lg">
+                  {personalInfo.role} · {personalInfo.yearsOfExperience}+ years
+                </p>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--fg-muted)]">
+                  {personalInfo.introduction}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Button
+                    size="sm"
+                    onClick={() => window.open(personalInfo.cvUrl, '_blank')}
+                    aria-label="Download CV"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download CV
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => {
+                      window.location.href = `mailto:${personalInfo.email}`;
+                    }}
+                  >
+                    <Mail className="h-4 w-4" />
+                    Contact
+                  </Button>
                 </div>
               </div>
             </div>

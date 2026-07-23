@@ -4,7 +4,6 @@ import { SECTION_IDS } from '@/constants';
 export const personalInfo: PersonalInfo = {
   name: 'Dang Ngoc Hai',
   role: 'Mobile Developer',
-  avatar: '/images/avatar.svg',
   introduction:
     'Mobile Developer with 4 years of experience building scalable apps with Flutter and React Native — strong architecture, solid performance, and production-ready release workflows.',
   yearsOfExperience: 4,

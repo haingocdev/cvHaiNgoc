@@ -26,7 +26,6 @@ export interface SocialLink {
 export interface PersonalInfo {
   name: string;
   role: string;
-  avatar: string;
   introduction: string;
   yearsOfExperience: number;
   about: string;

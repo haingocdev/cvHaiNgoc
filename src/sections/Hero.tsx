@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowDown, Download, FileText, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Button, Container, LazyImage } from '@/components/ui';
+import { Button, Container } from '@/components/ui';
 import { personalInfo } from '@/data/personal';
 import { ANIMATION, ROUTES, SECTION_IDS } from '@/constants';
 import { scrollToSection } from '@/utils';
@@ -18,8 +18,9 @@ export function Hero() {
         <div className="absolute right-10 bottom-20 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
       </div>
 
-      <Container className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <Container className="flex justify-center">
         <motion.div
+          className="mx-auto max-w-3xl text-center"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: ANIMATION.DURATION, ease: ANIMATION.EASE }}
@@ -34,11 +35,11 @@ export function Hero() {
             {personalInfo.name}
           </h1>
           <p className="mt-3 text-xl font-medium text-secondary sm:text-2xl">{personalInfo.role}</p>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
             {personalInfo.introduction}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link to={ROUTES.SUMMARY}>
               <Button>
                 <FileText className="h-4 w-4" />
@@ -57,27 +58,6 @@ export function Hero() {
               <Mail className="h-4 w-4" />
               Contact
             </Button>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="relative mx-auto w-full max-w-md"
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: ANIMATION.DURATION, delay: 0.12, ease: ANIMATION.EASE }}
-        >
-          <div className="glass relative overflow-hidden rounded-[2rem] p-3 shadow-[var(--shadow-glow)]">
-            <LazyImage
-              src={personalInfo.avatar}
-              alt={`${personalInfo.name} avatar`}
-              className="aspect-square rounded-[1.5rem]"
-              width={480}
-              height={480}
-            />
-          </div>
-          <div className="absolute -bottom-4 -left-4 rounded-2xl border border-[var(--card-border)] bg-[var(--bg)] px-4 py-3 shadow-soft">
-            <p className="text-2xl font-bold text-primary">{personalInfo.yearsOfExperience}+</p>
-            <p className="text-xs text-[var(--fg-muted)]">Years Experience</p>
           </div>
         </motion.div>
       </Container>
