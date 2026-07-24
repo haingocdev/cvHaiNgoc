@@ -14,8 +14,8 @@ export function Education() {
         <Reveal>
           <SectionHeading
             eyebrow="Education"
-            title="Academic foundation"
-            description="Formal study and credentials that shaped my engineering approach."
+            title=""
+            // description="Formal study and credentials that shaped my engineering approach."
           />
         </Reveal>
 
