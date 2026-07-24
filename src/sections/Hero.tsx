@@ -54,10 +54,12 @@ export function Hero() {
               <Download className="h-4 w-4" />
               Download CV
             </Button>
-            <Button variant="ghost" onClick={() => scrollToSection(SECTION_IDS.CONTACT)}>
-              <Mail className="h-4 w-4" />
-              Contact
-            </Button>
+            <Link to={ROUTES.SUMMARY}>
+              <Button variant="ghost">
+                <Mail className="h-4 w-4" />
+                Contact
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </Container>

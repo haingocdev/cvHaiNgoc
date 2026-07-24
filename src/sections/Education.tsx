@@ -1,5 +1,6 @@
-import { Card, Container, Reveal, SectionHeading } from '@/components/ui';
+import { Badge, Card, Container, Reveal, SectionHeading } from '@/components/ui';
 import { education } from '@/data/education';
+import { certificates } from '@/data/certificates';
 import { ANIMATION, SECTION_IDS } from '@/constants';
 
 export function Education() {
@@ -14,7 +15,7 @@ export function Education() {
           <SectionHeading
             eyebrow="Education"
             title="Academic foundation"
-            description="Formal study and intensive training that shaped my engineering approach."
+            description="Formal study and credentials that shaped my engineering approach."
           />
         </Reveal>
 
@@ -41,6 +42,29 @@ export function Education() {
             </li>
           ))}
         </ol>
+
+        {certificates.length > 0 ? (
+          <div className="mt-14">
+            <Reveal>
+              <h3 className="text-sm font-semibold tracking-[0.14em] text-[var(--fg)] uppercase">
+                Certificates
+              </h3>
+            </Reveal>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {certificates.map((certificate, index) => (
+                <Reveal key={certificate.id} delay={index * ANIMATION.STAGGER}>
+                  <Card hover>
+                    <div className="flex items-start justify-between gap-2">
+                      <h4 className="text-sm font-semibold leading-snug">{certificate.name}</h4>
+                      <Badge>{certificate.year}</Badge>
+                    </div>
+                    <p className="mt-2 text-xs text-[var(--fg-muted)]">{certificate.issuer}</p>
+                  </Card>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </Container>
     </section>
   );

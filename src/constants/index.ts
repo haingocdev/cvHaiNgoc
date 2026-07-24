@@ -13,9 +13,7 @@ export const SECTION_IDS = {
   SKILLS: 'skills',
   EXPERIENCE: 'experience',
   PROJECTS: 'projects',
-  CERTIFICATES: 'certificates',
   EDUCATION: 'education',
-  CONTACT: 'contact',
 } as const;
 
 export const ROUTES = {

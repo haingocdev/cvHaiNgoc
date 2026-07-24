@@ -36,7 +36,5 @@ export const navItems = [
   { id: SECTION_IDS.SKILLS, label: 'Skills', href: `#${SECTION_IDS.SKILLS}` },
   { id: SECTION_IDS.EXPERIENCE, label: 'Experience', href: `#${SECTION_IDS.EXPERIENCE}` },
   { id: SECTION_IDS.PROJECTS, label: 'Projects', href: `#${SECTION_IDS.PROJECTS}` },
-  { id: SECTION_IDS.CERTIFICATES, label: 'Certificates', href: `#${SECTION_IDS.CERTIFICATES}` },
   { id: SECTION_IDS.EDUCATION, label: 'Education', href: `#${SECTION_IDS.EDUCATION}` },
-  { id: SECTION_IDS.CONTACT, label: 'Contact', href: `#${SECTION_IDS.CONTACT}` },
 ] as const;

@@ -1,6 +1,7 @@
-import { Badge, Card, Container, Reveal, SectionHeading } from '@/components/ui';
+import { Container, Reveal, SectionHeading } from '@/components/ui';
 import { experiences } from '@/data/experience';
 import { ANIMATION, SECTION_IDS } from '@/constants';
+import { cn } from '@/utils';
 
 export function Experience() {
   return (
@@ -9,51 +10,38 @@ export function Experience() {
       className="section-padding"
       aria-labelledby="experience-heading"
     >
-      <Container>
+      <Container className="max-w-3xl">
         <Reveal>
           <SectionHeading
             eyebrow="Experience"
-            title="Where I’ve shipped and grown"
-            description="A timeline of roles focused on Flutter, React Native, and cross-platform delivery."
+            title=""
+            // description="A timeline of roles focused on Flutter, React Native, and cross-platform delivery."
           />
         </Reveal>
 
-        <ol className="relative mt-12 space-y-8 before:absolute before:top-2 before:bottom-2 before:left-4 before:w-px before:bg-[var(--card-border)] md:before:left-1/2 md:before:-translate-x-1/2">
-          {experiences.map((item, index) => {
-            const isLeft = index % 2 === 0;
-            return (
-              <li key={item.id} className="relative">
-                <span className="absolute top-6 left-4 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-primary bg-[var(--bg)] md:left-1/2" />
-                <Reveal
-                  delay={index * ANIMATION.STAGGER}
-                  direction={isLeft ? 'left' : 'right'}
-                  className={`md:w-[calc(50%-2rem)] ${
-                    isLeft ? 'md:mr-auto md:pr-4' : 'md:ml-auto md:pl-4'
-                  } ml-10 md:ml-0`}
-                >
-                  <Card hover>
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div>
-                        <h3 className="text-lg font-semibold">{item.position}</h3>
-                        <p className="mt-1 text-sm font-medium text-primary">{item.company}</p>
-                      </div>
-                      <span className="rounded-lg bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
-                        {item.duration}
-                      </span>
-                    </div>
-                    <p className="mt-4 text-sm leading-relaxed text-[var(--fg-muted)]">
-                      {item.description}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {item.technologies.map((tech) => (
-                        <Badge key={tech}>{tech}</Badge>
-                      ))}
-                    </div>
-                  </Card>
-                </Reveal>
-              </li>
-            );
-          })}
+        <ol className="relative mt-12 ml-1 border-l border-[var(--card-border)] sm:ml-2">
+          {experiences.map((item, index) => (
+            <li key={item.id} className="relative">
+              <span
+                className="absolute top-1.5 -left-[5px] h-2.5 w-2.5 rounded-full border-2 border-primary bg-[var(--bg)]"
+                aria-hidden
+              />
+
+              <Reveal
+                delay={index * ANIMATION.STAGGER}
+                className={cn(
+                  'border-b border-[var(--card-border)] py-6 pl-8 sm:pl-10',
+                  index === experiences.length - 1 && 'border-b-0 pb-0',
+                )}
+              >
+                <time className="text-xs font-medium text-primary sm:text-sm">{item.duration}</time>
+                <h3 className="mt-2 text-lg font-bold tracking-tight text-[var(--fg)] sm:text-xl">
+                  {item.company}
+                </h3>
+                <p className="mt-1 text-sm text-[var(--fg-muted)] sm:text-base">{item.position}</p>
+              </Reveal>
+            </li>
+          ))}
         </ol>
       </Container>
     </section>

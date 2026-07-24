@@ -6,9 +6,7 @@ export type SectionId =
   | 'skills'
   | 'experience'
   | 'projects'
-  | 'certificates'
-  | 'education'
-  | 'contact';
+  | 'education';
 
 export interface NavItem {
   id: SectionId;
@@ -57,7 +55,11 @@ export type ProjectCategory = 'all' | 'flutter' | 'react-native' | 'react';
 export interface ProjectItem {
   id: string;
   title: string;
+  role: string;
+  company: string;
+  platforms: string[];
   description: string;
+  responsibilities: string[];
   technologies: string[];
   category: Exclude<ProjectCategory, 'all'>;
   githubUrl?: string;
@@ -77,12 +79,6 @@ export interface EducationItem {
   degree: string;
   duration: string;
   description: string;
-}
-
-export interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
 }
 
 export interface SeoMeta {

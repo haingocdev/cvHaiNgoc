@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Container, ThemeToggle } from '@/components/ui';
 import { navItems, personalInfo } from '@/data/personal';
 import { useActiveSection, useMediaQuery } from '@/hooks';
-import { ROUTES, SECTION_IDS } from '@/constants';
+import { ROUTES } from '@/constants';
 import { cn, scrollToSection } from '@/utils';
 
 export function Navbar() {
@@ -172,13 +172,13 @@ export function Navbar() {
                   >
                     Full portfolio
                   </Link>
-                  <button
-                    type="button"
-                    className={`${mobileLinkClass(false)} text-left`}
-                    onClick={() => handleSectionNavigate(`#${SECTION_IDS.CONTACT}`)}
+                  <Link
+                    to={ROUTES.SUMMARY}
+                    className={mobileLinkClass(false)}
+                    onClick={() => setMenuOpen(false)}
                   >
                     Contact
-                  </button>
+                  </Link>
                 </>
               )}
             </Container>

@@ -5,16 +5,16 @@ import { ANIMATION, SECTION_IDS } from '@/constants';
 export function Certificates() {
   return (
     <section
-      id={SECTION_IDS.CERTIFICATES}
+      id={SECTION_IDS.EDUCATION}
       className="section-padding"
-      aria-labelledby="certificates-heading"
+      aria-labelledby="education-heading"
     >
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Certificates"
-            title="Credentials and continuous learning"
-            description="Recognitions that reflect my commitment to mobile craft and modern web stacks."
+            eyebrow="Education"
+            title=""
+            // description="Recognitions that reflect my commitment to mobile craft and modern web stacks."
           />
         </Reveal>
 

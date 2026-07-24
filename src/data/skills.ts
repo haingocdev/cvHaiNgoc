@@ -38,16 +38,10 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: 'practices',
-    title: 'Testing, CI/CD & Practices',
+    title: 'Methods',
     skills: [
       'Unit Testing',
-      'Widget Testing',
-      'CI/CD pipelines',
-      'Fastlane',
-      'App Store',
-      'Google Play',
       'Agile / Scrum',
-      'AI-assisted engineering',
     ],
   },
 ];

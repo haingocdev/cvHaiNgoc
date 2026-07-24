@@ -57,15 +57,15 @@ export function SummaryPage() {
       <section className="section-padding pt-28 sm:pt-32">
         <Container className="max-w-4xl">
           <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+            {/* <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
               Quick Summary
-            </p>
+            </p> */}
             <Link
               to={ROUTES.HOME}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-primary"
             >
-              Full portfolio
-              <ArrowRight className="h-4 w-4" />
+              {/* Full portfolio
+              <ArrowRight className="h-4 w-4" /> */}
             </Link>
           </div>
 
@@ -108,7 +108,7 @@ export function SummaryPage() {
             <div className="grid gap-0 lg:grid-cols-[1fr_1.2fr]">
               {/* Left column */}
               <div className="space-y-8 border-b border-[var(--card-border)] p-6 sm:p-8 lg:border-r lg:border-b-0">
-                <div>
+                <div id="contact">
                   <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--fg)]">
                     Contact
                   </h2>
@@ -218,7 +218,7 @@ export function SummaryPage() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-center">
             <p className="w-full text-sm text-[var(--fg-muted)] sm:w-auto">
-              Want more detail, projects, and certificates?
+              Want more detail, projects, and education?
             </p>
             <Link to={ROUTES.HOME}>
               <Button variant="outline" size="sm">

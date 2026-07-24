@@ -8,9 +8,9 @@ export function Skills() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Skills"
-            title="Tools and technologies"
-            description="Languages, frameworks, and tooling I use to ship production mobile and web apps."
+            eyebrow=" Technical Skills"
+            title=""
+            // description="Languages, frameworks, and tooling I use to ship production mobile and web apps."
           />
         </Reveal>
 

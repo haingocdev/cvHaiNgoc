@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Badge, Card, Container, Reveal, SectionHeading } from '@/components/ui';
-import { GitHubIcon } from '@/components/icons';
+import { Container, Reveal, SectionHeading } from '@/components/ui';
 import { projectFilterOptions, projects } from '@/data/projects';
 import { ANIMATION, PROJECT_FILTERS, SECTION_IDS } from '@/constants';
 import type { ProjectCategory } from '@/types';
@@ -10,11 +9,17 @@ import { cn } from '@/utils';
 
 export function Projects() {
   const [filter, setFilter] = useState<ProjectCategory>(PROJECT_FILTERS.ALL);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const filteredProjects = useMemo(() => {
     if (filter === PROJECT_FILTERS.ALL) return projects;
     return projects.filter((project) => project.category === filter);
   }, [filter]);
+
+  const handleFilterChange = (next: ProjectCategory) => {
+    setFilter(next);
+    setExpandedId(null);
+  };
 
   return (
     <section
@@ -22,13 +27,9 @@ export function Projects() {
       className="section-padding"
       aria-labelledby="projects-heading"
     >
-      <Container>
+      <Container className="max-w-4xl">
         <Reveal>
-          <SectionHeading
-            eyebrow="Projects"
-            title="Selected work"
-            description="Selected customer and freelance work — filter by Flutter, React Native, or React."
-          />
+          <SectionHeading eyebrow="Projects" title="" />
         </Reveal>
 
         <Reveal delay={0.08}>
@@ -41,7 +42,7 @@ export function Projects() {
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  onClick={() => setFilter(option.id)}
+                  onClick={() => handleFilterChange(option.id)}
                   className={cn(
                     'rounded-xl px-4 py-2 text-sm font-medium transition-all',
                     isActive
@@ -56,58 +57,113 @@ export function Projects() {
           </div>
         </Reveal>
 
-        <motion.div layout className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 space-y-0 border-t border-[var(--card-border)]">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.96, y: 16 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.35, delay: index * 0.04, ease: ANIMATION.EASE }}
-              >
-                <Card hover className="group flex h-full flex-col overflow-hidden">
-                  <h3 className="text-lg font-semibold">{project.title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--fg-muted)]">
-                    {project.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech}>{tech}</Badge>
-                    ))}
-                  </div>
-                  {project.githubUrl || project.demoUrl ? (
-                    <div className="mt-5 flex gap-3">
-                      {project.githubUrl ? (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--fg)] transition-colors hover:text-primary"
-                        >
-                          <GitHubIcon className="h-4 w-4" />
-                          GitHub
-                        </a>
-                      ) : null}
-                      {project.demoUrl ? (
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--fg)] transition-colors hover:text-primary"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                          Demo
-                        </a>
-                      ) : null}
+            {filteredProjects.map((project, index) => {
+              const isExpanded = expandedId === project.id;
+
+              return (
+                <motion.article
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3, delay: index * 0.03, ease: ANIMATION.EASE }}
+                  className="border-b border-[var(--card-border)]"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setExpandedId(isExpanded ? null : project.id)}
+                    className="flex w-full items-start justify-between gap-4 py-5 text-left"
+                    aria-expanded={isExpanded}
+                    aria-controls={`project-details-${project.id}`}
+                  >
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-semibold text-[var(--fg)]">{project.title}</h3>
+                      <p className="mt-1.5 text-sm font-normal text-[var(--fg-muted)]">
+                        {project.role}
+                        <span className="mx-1.5 text-[var(--fg-subtle)]">//</span>
+                        {project.company}
+                      </p>
                     </div>
-                  ) : null}
-                </Card>
-              </motion.div>
-            ))}
+                    <ChevronDown
+                      className={cn(
+                        'mt-1 h-5 w-5 shrink-0 text-[var(--fg-muted)] transition-transform duration-300',
+                        isExpanded && 'rotate-180 text-primary',
+                      )}
+                      aria-hidden
+                    />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isExpanded ? (
+                      <motion.div
+                        id={`project-details-${project.id}`}
+                        key="details"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.28, ease: ANIMATION.EASE }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-5 pb-6">
+                          <div className="flex flex-wrap gap-2">
+                            {project.platforms.map((platform) => (
+                              <span
+                                key={platform}
+                                className="inline-flex items-center rounded border border-[var(--card-border)] px-2.5 py-1 text-xs font-medium tracking-wide text-[var(--fg)] uppercase"
+                              >
+                                {platform}
+                              </span>
+                            ))}
+                          </div>
+
+                          <p className="text-sm leading-relaxed font-normal text-[var(--fg)]">
+                            {project.description}
+                          </p>
+
+                          <div>
+                            <h4 className="text-xs font-semibold tracking-[0.14em] text-[var(--fg)] uppercase">
+                              Responsibilities
+                            </h4>
+                            <ul className="mt-3 space-y-2">
+                              {project.responsibilities.map((item) => (
+                                <li
+                                  key={item}
+                                  className="flex gap-2 text-sm leading-relaxed font-normal text-[var(--fg)]"
+                                >
+                                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[var(--fg)]" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div>
+                            <h4 className="text-xs font-semibold tracking-[0.14em] text-[var(--fg)] uppercase">
+                              Technologies
+                            </h4>
+                            <div className="mt-3 flex flex-wrap gap-2">
+                              {project.technologies.map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="inline-flex items-center rounded border border-[var(--card-border)] bg-[var(--bg-muted)] px-2.5 py-1 text-xs font-normal text-[var(--fg)]"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                </motion.article>
+              );
+            })}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

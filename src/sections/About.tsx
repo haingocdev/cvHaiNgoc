@@ -10,8 +10,8 @@ export function About() {
         <Reveal>
           <SectionHeading
             eyebrow="About Me"
-            title="Building mobile products people enjoy using"
-            description="A brief look at my background, experience, and where I’m headed."
+            title=""
+            // description="A brief look at my background, experience, and where I’m headed."
           />
         </Reveal>
 

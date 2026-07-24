@@ -102,6 +102,6 @@
   }
 
   .section-padding {
-    padding-block: clamp(4rem, 8vw, 7rem);
+    padding-block: clamp(0.5rem, 5vw, 1.5rem);
   }
 }

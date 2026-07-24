@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   About,
-  Certificates,
-  Contact,
   Education,
   Experience,
   Hero,
@@ -34,9 +32,7 @@ export function HomePage() {
       <Skills />
       <Experience />
       <Projects />
-      <Certificates />
       <Education />
-      <Contact />
     </>
   );
 }
